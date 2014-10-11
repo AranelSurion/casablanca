@@ -1,0 +1,30 @@
+===== CASABLANCA =====
+==== Aranel Surion <aranel@aranelsurion.org ====
+
+Casablanca is a small, PHP-based, password-protected administration dashboard to keep track of your Raspberry. 
+It's based on Atouk 's *awesome* PiWWW script.
+
+== IMPORTANT ==
+* After you upload Casablanca to your Pi, modify the phpChart_lite/conf.php to and set it's path accordingly, otherwise it won't work.
+* To set a new password, modify index.php and change the MD5 there, sorry, had no time to prettify it.
+* GPIO pins module requires WiringPi to be exist on your installation. It may already if you're using Raspbian or it's derivatives.
+
+** Some features requires access to /var/lib/php5, /var/log/syslog, /var/log/messages and super-user privileges to use vcgencmd.
+** If you don't want to use them, edit the script accordingly. If you want them, edit your sudoers file by issuing "sudo visudo"
+** Under no circumstances, DO NOT give ALL priviliges to www-data user, only give it enough permissions to read/write above
+** 3 files and execute /opt/vc/bin/vcgencmd
+
+** This script was meant to be used under Raspbian or Raspbmc. Some features may not work under other distributions.
+
+== WARNING ==
+This script makes heavy use of shell_exec() and requires extra privileges to run some modules, please be aware that this may lead
+to very, very bad situations. If possible, check it line-by-line and find/report it's security holes. Do not run it on a unsafe
+environment.
+
+Special thanks to:
+* Atouk (http://atouk.com)
+* TAFB (http://tafb.yi.org)
+
+Resources: 
+* phpChart_lite (http://phpchart.net): Draws the wonderful Temperature chart.
+* SimpleAdmin: Free and awesome Admin panel template, Casablanca uses a slightly modified version of it.
